@@ -2,7 +2,7 @@ class Solution {
     public int numDecodings(String s) {
         func(s,0);
     }
-    public int func(String s,int pos){
+    private int func(String s,int pos){
         if(pos == s.length()-1){
           return 1;
         }
@@ -10,9 +10,9 @@ class Solution {
           return 0;
         }
         int result;
-        if(s.charAt(i) < '2' ||(s.charAt(i) == '2' && s.charAt(i+1) <= '6')){
-          result += func(i+2);
+        if(s.charAt(pos) < '2' ||(s.charAt(pos) == '2' && s.charAt(pos+1) <= '6')){
+          result += func(pos+2);
         }
-        result += func(i+1);
+        result += func(pos+1);
     }
 }
