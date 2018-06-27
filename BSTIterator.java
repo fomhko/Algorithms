@@ -30,8 +30,6 @@ public class BSTIterator {
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
         if(s.size() == 0){return false;}
-        // TreeNode top = s.peek();
-        // if(top.right == null && s.size() == 1){return false;}
         else return true;
     }
 
