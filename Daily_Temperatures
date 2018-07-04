@@ -1,0 +1,28 @@
+class Solution {
+    class Val_Pos{
+        int val;
+        int pos;
+        public Val_Pos(int val,int pos){
+            this.val = val;
+            this.pos = pos;
+        }
+    }
+    public int[] dailyTemperatures(int[] temperatures) {
+        Stack<Val_Pos> s = new Stack<Val_Pos>();
+        int len = temperatures.length;
+        int[] result = new int[len];
+        for(int i = len - 1; i >= 0; i--){
+            while(!s.empty() && temperatures[i] >= s.peek().val){
+                s.pop();
+            }
+            if(s.empty()){
+                result[i] = 0;
+            }
+            else{
+                result[i] = s.peek().pos - i;
+            }
+            s.push(new Val_Pos(temperatures[i],i));
+        }
+        return result;
+    }
+}
